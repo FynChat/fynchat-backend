@@ -1,0 +1,11 @@
+assets/
+build/
+/.env
+deploy/
+docs/
+examples/
+internal/*
+migrations/
+tests/
+/go.mod
+/go.sum
