@@ -1,20 +1,22 @@
 package main
 
 import (
-	"fmt"
 	"log"
-	"net/http"
+	//	"fynchat/internal/api"
+	"fynchat/internal/handlers"
+	"fynchat/internal/routes"
 
-	"fynchat/internal/api"
-	"fynchat/internal/database"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	db := database.GetConnection()
-	defer db.Close()
+	pingHandler := handlers.NewPingHandler()
 
-	routesHandler := api.RegisterRoutes(db)
+	r := gin.Default()
 
-	fmt.Println("Server is running on http://localhost:8080")
-	log.Fatal(http.ListenAndServe(":8085", routesHandler))
+	routes.Setup(r, pingHandler)
+
+	if err := r.Run(":" + "8080"); err != nil {
+		log.Fatal(err)
+	}
 }
