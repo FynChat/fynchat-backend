@@ -1,0 +1,15 @@
+services:
+  fynchat-db:
+    image: postgres:16
+    container_name: fynchat
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_USER: root
+      POSTGRES_DB: fynchat
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
+
