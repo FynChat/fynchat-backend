@@ -1,10 +1,9 @@
 assets/
 build/
-/.env
+.env
 deploy/
 docs/
 examples/
-internal/*
 migrations/
 tests/
 /go.mod
