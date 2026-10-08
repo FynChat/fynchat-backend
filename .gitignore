@@ -1,0 +1,9 @@
+assets/
+build/
+.env
+deploy/
+docs/
+examples/
+migrations/
+tests/
+
